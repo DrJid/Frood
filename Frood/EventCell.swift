@@ -26,5 +26,8 @@ class EventCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBOutlet var eventAddressLabel: UILabel
+    @IBOutlet var eventTitleTime: UILabel
+    @IBOutlet var eventTitleLabel: UILabel
     @IBOutlet var typeLabel: UILabel
 }

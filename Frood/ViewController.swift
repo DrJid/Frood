@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var userCoordinate:CLLocationCoordinate2D?
 
-    let apiKey = "Frood.xcodeproj/project.xcworkspace/contents.xcworkspacedata"
+    let apiKey = "761f445110406175175e2272ad16"
 
     
     override func viewDidLoad() {
@@ -37,8 +37,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         println(userCoordinate!)
 
-
-//make the call and the reponse contains the callback json
+//        let parameters = ["lat": userCoordinate!.latitude.description, "long": userCoordinate!.longitude.description]
+        //make the call and the reponse contains the callback json
         APICLientSingleton.dataTask("/2/open_events.json?topic=photo&time=,1w&key=\(apiKey)", parameters: nil) { response in
             //response call
             if let response:AnyObject = response  {
@@ -53,12 +53,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     
-
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as EventCell
-       
         
         cell.typeLabel.text = "haha"
+        cell.eventTitleTime.text = "9am to 9pm"
+        cell.eventAddressLabel.text = "34 Howard"
+        cell.eventTitleLabel.text = "Swift Hackday"
         return cell
     }
     
