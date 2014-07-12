@@ -9,13 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
+    
+    let apiKey = "INSERT-API-KEY"
     override func viewDidLoad() {
         super.viewDidLoad()
-        APICLientSingleton.dataTask("/2/groups?&sign=true&lat=51.509980&lon=-0.133700", parameters: nil)
-
+        //make the call and the reponse contains the callback json
+        APICLientSingleton.dataTask("/2/open_events.json?topic=photo&time=,1w&key=\(apiKey)", parameters: nil) { response in
+            //response call
+            if let response:AnyObject = response  {
+             println("repsonse \(response)")
+            }
+        }
     }
-
-   
 }
 
