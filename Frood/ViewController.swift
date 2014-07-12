@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+                            
+    @IBOutlet var theTableView: UITableView
+    
+    var userCoordinate:CLLocationCoordinate2D?
+
+    let apiKey = "Frood.xcodeproj/project.xcworkspace/contents.xcworkspacedata"
+
     
     let apiKey = "3a177152804be44404644338256f78"
     override func viewDidLoad() {
@@ -24,6 +32,27 @@ class ViewController: UIViewController {
              println("repsonse \(response)")
             }
         }
+
     }
+    
+    override func viewDidAppear(animated: Bool)  {
+        
+    }
+
+    
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as EventCell
+       
+        
+        cell.typeLabel.text = "haha"
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
 }
+   
 
