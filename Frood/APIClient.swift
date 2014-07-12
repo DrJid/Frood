@@ -47,11 +47,10 @@ class APIClient:NSObject {
         
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
             if let json: AnyObject = self.parseDataToJSON(data) {
-                println("result: \(json) response: \(response) error:\(error)")
                 callback(json) // = AnyObject?
             }
             else {
-                println("response: \(response) error\(error)")
+                println("error in callresponse: \(response) error\(error)")
                 callback(nil)
             }
         });
