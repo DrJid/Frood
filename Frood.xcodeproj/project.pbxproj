@@ -12,6 +12,7 @@
 		16FC0F041971CFDA00B63EA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16FC0F021971CFDA00B63EA7 /* Main.storyboard */; };
 		16FC0F061971CFDA00B63EA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16FC0F051971CFDA00B63EA7 /* Images.xcassets */; };
 		16FC0F121971CFDB00B63EA7 /* FroodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC0F111971CFDB00B63EA7 /* FroodTests.swift */; };
+		16FC0F1C1971D90100B63EA7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FC0F1B1971D90100B63EA7 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		16FC0F0B1971CFDB00B63EA7 /* FroodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FroodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16FC0F101971CFDB00B63EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16FC0F111971CFDB00B63EA7 /* FroodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FroodTests.swift; sourceTree = "<group>"; };
+		16FC0F1B1971D90100B63EA7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16FC0F1C1971D90100B63EA7 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +60,7 @@
 		16FC0EF01971CFDA00B63EA7 = {
 			isa = PBXGroup;
 			children = (
+				16FC0F1B1971D90100B63EA7 /* CoreLocation.framework */,
 				16FC0EFB1971CFDA00B63EA7 /* Frood */,
 				16FC0F0E1971CFDB00B63EA7 /* FroodTests */,
 				16FC0EFA1971CFDA00B63EA7 /* Products */,
