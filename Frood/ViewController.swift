@@ -18,15 +18,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let apiKey = "Frood.xcodeproj/project.xcworkspace/contents.xcworkspacedata"
 
     
-    let apiKey = "3a177152804be44404644338256f78"
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let lat = "37.784296"
-        let lon = "-122.414941"
-        let distance = "5"
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Create an array of tuples.
+        var cord1 = CLLocationCoordinate2D(latitude: 37.7749300, longitude: -122.4194200)
+        var cord2 = CLLocationCoordinate2D(latitude: 32, longitude: -100)
+        var cord3 = CLLocationCoordinate2D(latitude: 39, longitude: -124)
+        
+        var locations = [CLLocationCoordinate2D]()
+        locations += cord1
+        locations += cord2
+        locations += cord3
+        
+        //Pick the random location: 
+        userCoordinate = locations[0]
+        
+        println(userCoordinate!)
+            super.viewDidLoad()
+            
+            let lat = "37.784296"
+            let lon = "-122.414941"
+            let distance = "5"
+            //make the call and the reponse contains the callback json
+            APICLientSingleton.dataTask("/2/open_events.json?lat=\(lat)&lon=\(lon)&distance=\(distance)&key=\(apiKey)", parameters: nil) { response in
+                //response call
+                if let response:AnyObject = response  {
+                    println("repsonse \(response)")
+                }
+            }
+
+
         //make the call and the reponse contains the callback json
-        APICLientSingleton.dataTask("/2/open_events.json?lat=\(lat)&lon=\(lon)&distance=\(distance)&key=\(apiKey)", parameters: nil) { response in
+        APICLientSingleton.dataTask("/2/open_events.json?topic=photo&time=,1w&key=\(apiKey)", parameters: nil) { response in
             //response call
             if let response:AnyObject = response  {
              println("repsonse \(response)")
