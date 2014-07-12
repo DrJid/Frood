@@ -18,7 +18,7 @@ class APIClient:NSObject {
         }
         return Singleton.instance
     }
-    
+
     let baseURL: String
     let session: NSURLSession
     
@@ -35,12 +35,18 @@ class APIClient:NSObject {
     }
     
     
-    func dataTask(url:NSString) -> (task:NSURLSessionDataTask) {
-
+    func dataTask(url:NSString, parameters: Dictionary<String,String>?) -> (task:NSURLSessionDataTask) {
+        
         var finalURL = NSURL.URLWithString(url, relativeToURL: NSURL.URLWithString(baseURL))
-        var request: NSURLRequest = NSURLRequest(URL:finalURL)
+        var request: NSMutableURLRequest = NSMutableURLRequest(URL:finalURL)
+        if parameters {
+            if let parsedParams = self.parseJSONToData(parameters) {
+                request.HTTPBody = parsedParams
+            }
+        }
+        
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
-            if let json: AnyObject = self.parseDateToJSON(data) {
+            if let json: AnyObject = self.parseDataToJSON(data) {
                 println("response: \(json) response: \(response) error:\(error)")
             }
             else {
@@ -56,7 +62,7 @@ class APIClient:NSObject {
 
     }
     
-    func parseDateToJSON(data: NSData) -> AnyObject? {
+    func parseDataToJSON(data: NSData) -> AnyObject? {
         var json: AnyObject?
         var jsonError: NSError?
         json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &jsonError)
@@ -69,6 +75,20 @@ class APIClient:NSObject {
         return nil
     }
 
+    func parseJSONToData(json: AnyObject?) -> NSData? {
+
+        var data: NSData
+        var jsonError: NSError?
+        data = NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions(), error: &jsonError)
+        
+        if jsonError {
+            println("error parsing data \(jsonError)")
+        }
+        else {
+            return  data
+        }
+        return nil
+    }
 
 }
 

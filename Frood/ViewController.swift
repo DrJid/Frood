@@ -12,6 +12,7 @@ class ViewController: UIViewController {
                             
     override func viewDidLoad() {
         super.viewDidLoad()
+        APICLientSingleton.dataTask("/2/groups?&sign=true&lat=51.509980&lon=-0.133700", parameters: nil)
 
     }
 
