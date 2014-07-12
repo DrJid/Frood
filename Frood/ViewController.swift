@@ -15,7 +15,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var userCoordinate:CLLocationCoordinate2D?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -46,8 +45,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = "Event Data"// object.description
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as EventCell
+       
+        
+        cell.typeLabel.text = "haha"
         return cell
     }
     
@@ -55,15 +56,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 5
     }
     
-    
-    // Location Manager Delegates Callbacks
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!)  {
-        println("Locations:  \(locations)" )
-        println("locations called")
-    }
-    
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!)  {
-        println("Error: \(error)")
-    }
 }
 

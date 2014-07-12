@@ -13,6 +13,7 @@
 		16FC0F061971CFDA00B63EA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16FC0F051971CFDA00B63EA7 /* Images.xcassets */; };
 		16FC0F121971CFDB00B63EA7 /* FroodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC0F111971CFDB00B63EA7 /* FroodTests.swift */; };
 		16FC0F1C1971D90100B63EA7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16FC0F1B1971D90100B63EA7 /* CoreLocation.framework */; };
+		16FC0F1E1971E9E600B63EA7 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC0F1D1971E9E600B63EA7 /* EventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		16FC0F101971CFDB00B63EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16FC0F111971CFDB00B63EA7 /* FroodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FroodTests.swift; sourceTree = "<group>"; };
 		16FC0F1B1971D90100B63EA7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		16FC0F1D1971E9E600B63EA7 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				16FC0EFE1971CFDA00B63EA7 /* AppDelegate.swift */,
 				16FC0F001971CFDA00B63EA7 /* ViewController.swift */,
 				16FC0F021971CFDA00B63EA7 /* Main.storyboard */,
+				16FC0F1D1971E9E600B63EA7 /* EventCell.swift */,
 				16FC0F051971CFDA00B63EA7 /* Images.xcassets */,
 				16FC0EFC1971CFDA00B63EA7 /* Supporting Files */,
 			);
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16FC0F011971CFDA00B63EA7 /* ViewController.swift in Sources */,
+				16FC0F1E1971E9E600B63EA7 /* EventCell.swift in Sources */,
 				16FC0EFF1971CFDA00B63EA7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +403,7 @@
 				16FC0F171971CFDB00B63EA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16FC0F181971CFDB00B63EA7 /* Build configuration list for PBXNativeTarget "FroodTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +412,7 @@
 				16FC0F1A1971CFDB00B63EA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
