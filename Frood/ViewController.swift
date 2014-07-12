@@ -14,6 +14,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var theTableView: UITableView
     
     var userCoordinate:CLLocationCoordinate2D?
+
+    let apiKey = "Frood.xcodeproj/project.xcworkspace/contents.xcworkspacedata"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         userCoordinate = locations[0]
         
         println(userCoordinate!)
+
+
+//make the call and the reponse contains the callback json
+        APICLientSingleton.dataTask("/2/open_events.json?topic=photo&time=,1w&key=\(apiKey)", parameters: nil) { response in
+            //response call
+            if let response:AnyObject = response  {
+             println("repsonse \(response)")
+            }
+        }
+
     }
     
     override func viewDidAppear(animated: Bool)  {
@@ -53,7 +66,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 5
     }
     
-
-   
 }
+   
 

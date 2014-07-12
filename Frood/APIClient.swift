@@ -10,10 +10,12 @@ import Foundation
 import UIKit
 
 class APIClient:NSObject {
+    
+    //creatin a singleton. it is called at the bottom of the file
     class var sharedInstance:
         APIClient {
     struct Singleton {
-        
+        //Start the client with the base url
         static let instance = APIClient(baseURL: "https://api.meetup.com")
         }
         return Singleton.instance
@@ -22,20 +24,18 @@ class APIClient:NSObject {
     let baseURL: String
     let session: NSURLSession
     
-    let successBlock = {()}
-    
     init(baseURL:String) {
         self.baseURL = baseURL
-        
-        
+        //creaget the sesscion configuration and set it to receive json as response
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let configOptions = ["Accept":"application/json"]
-
         self.session = NSURLSession(configuration: config, delegate: nil, delegateQueue: nil)
     }
     
     
-    func dataTask(url:NSString, parameters: Dictionary<String,String>?) -> (task:NSURLSessionDataTask) {
+    //generic call to get a parsed response
+    //it has no error handling yet
+    func dataTask(url:NSString, parameters: Dictionary<String,String>?, callback: (AnyObject?) -> ()) -> (task:NSURLSessionDataTask) {
         
         var finalURL = NSURL.URLWithString(url, relativeToURL: NSURL.URLWithString(baseURL))
         var request: NSMutableURLRequest = NSMutableURLRequest(URL:finalURL)
@@ -47,14 +47,14 @@ class APIClient:NSObject {
         
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
             if let json: AnyObject = self.parseDataToJSON(data) {
-                println("response: \(json) response: \(response) error:\(error)")
+                println("result: \(json) response: \(response) error:\(error)")
+                callback(json) // = AnyObject?
             }
             else {
                 println("response: \(response) error\(error)")
-                
+                callback(nil)
             }
-            
-            });
+        });
 
         
         task.resume()
